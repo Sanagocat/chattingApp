@@ -1,11 +1,13 @@
 const express=require("express"); //nodejs server library
+const cors = require('cors');
+
 //socket.io : websocket -> FAST Request / Response
 const socketIo=require("socket.io"); //websocket -> http websocket 
 const http=require("http");
 const path=require("path");
 
 const app=express();
-app.use(express.static(path.join(__dirname,"src")));
+app.use(cors());// CORS 설정
 const server = http.createServer(app);
 
 //websocket message data get and emit all
