@@ -7,8 +7,8 @@ const http=require("http");
 const path=require("path");
 
 const app=express();
-//app.use(cors());// CORS 설정
-app.use(cors({ origin: 'https://chatting-app-front-one.vercel.app' }));
+app.use(cors());// CORS 설정
+
 const server = http.createServer(app);
 
 //websocket message data get and emit all
