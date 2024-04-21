@@ -29,12 +29,10 @@ io.on("connection",function(socket){
 );
 
 
-//Server (server_address :192.168.137.102 (=naver.com) / PORT = 3000)
 const PORT = 3000;
-server.listen(PORT, function(){
+server.listen(PORT, "0.0.0.0", function(){
     console.log("Server is running on port "+PORT);
-  }        
-);
+});
 
 //default response
 app.get("/", (req,res)=> {
