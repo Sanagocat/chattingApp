@@ -13,9 +13,7 @@ const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
     origin: "https://chatting-app-front-one.vercel.app", // 허용할 프론트엔드 주소
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true
+    methods: ["GET", "POST"]
   }
 });
 
