@@ -9,10 +9,9 @@ app.use(cors()); // CORS 설정
 
 const server = http.createServer(app);
 
-// 웹소켓에 대한 CORS 설정 추가
 const io = socketIo(server, {
   cors: {
-    origin: "https://chatting-app-front-one.vercel.app", // 허용할 프론트엔드 주소
+    origin: "*", // 모든 출처 허용 (개발 및 테스트 환경)
     methods: ["GET", "POST"]
   }
 });
@@ -27,8 +26,8 @@ io.on("connection", function(socket){
     });
 });
 
-const PORT = 3000;
-server.listen(PORT, "0.0.0.0", function(){
+const PORT = process.env.PORT || 3000; // Heroku에서 제공하는 포트를 사용하고, 없으면 3000 포트 사용
+server.listen(PORT, () => {
     console.log("Server is running on port " + PORT);
 });
 
